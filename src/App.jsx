@@ -1,35 +1,144 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './assets/css/styles.css'
+import Footer from './components/partials/Footer';
+import Nav from './components/partials/Nav';
+import Sidebar from './components/partials/Sidebar';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Nav/>
+      <div id="layoutSidenav">
+        <Sidebar/>
+
+        <div id="layoutSidenav_content">
+          <main>
+              <div class="container-fluid px-4">
+                  <h1 class="mt-4">Dashboard</h1>
+                  <ol class="breadcrumb mb-4">
+                      <li class="breadcrumb-item active">Dashboard</li>
+                  </ol>
+                  <div class="row">
+                      <div class="col-xl-3 col-md-6">
+                          <div class="card bg-primary text-white mb-4">
+                              <div class="card-body">Primary Card</div>
+                              <div class="card-footer d-flex align-items-center justify-content-between">
+                                  <a class="small text-white stretched-link" href="#">View Details</a>
+                                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-md-6">
+                          <div class="card bg-warning text-white mb-4">
+                              <div class="card-body">Warning Card</div>
+                              <div class="card-footer d-flex align-items-center justify-content-between">
+                                  <a class="small text-white stretched-link" href="#">View Details</a>
+                                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-md-6">
+                          <div class="card bg-success text-white mb-4">
+                              <div class="card-body">Success Card</div>
+                              <div class="card-footer d-flex align-items-center justify-content-between">
+                                  <a class="small text-white stretched-link" href="#">View Details</a>
+                                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-md-6">
+                          <div class="card bg-danger text-white mb-4">
+                              <div class="card-body">Danger Card</div>
+                              <div class="card-footer d-flex align-items-center justify-content-between">
+                                  <a class="small text-white stretched-link" href="#">View Details</a>
+                                  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xl-6">
+                          <div class="card mb-4">
+                              <div class="card-header">
+                                  <i class="fas fa-chart-area me-1"></i>
+                                  Area Chart Example
+                              </div>
+                              <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                          </div>
+                      </div>
+                      <div class="col-xl-6">
+                          <div class="card mb-4">
+                              <div class="card-header">
+                                  <i class="fas fa-chart-bar me-1"></i>
+                                  Bar Chart Example
+                              </div>
+                              <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card mb-4">
+                      <div class="card-header">
+                          <i class="fas fa-table me-1"></i>
+                          DataTable Example
+                      </div>
+                      <div class="card-body">
+                          <table id="datatablesSimple">
+                              <thead>
+                                  <tr>
+                                      <th>Name</th>
+                                      <th>Position</th>
+                                      <th>Office</th>
+                                      <th>Age</th>
+                                      <th>Start date</th>
+                                      <th>Salary</th>
+                                  </tr>
+                              </thead>
+                              <tfoot>
+                                  <tr>
+                                      <th>Name</th>
+                                      <th>Position</th>
+                                      <th>Office</th>
+                                      <th>Age</th>
+                                      <th>Start date</th>
+                                      <th>Salary</th>
+                                  </tr>
+                              </tfoot>
+                              <tbody>
+                                  <tr>
+                                      <td>Tiger Nixon</td>
+                                      <td>System Architect</td>
+                                      <td>Edinburgh</td>
+                                      <td>61</td>
+                                      <td>2011/04/25</td>
+                                      <td>$320,800</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Garrett Winters</td>
+                                      <td>Accountant</td>
+                                      <td>Tokyo</td>
+                                      <td>63</td>
+                                      <td>2011/07/25</td>
+                                      <td>$170,750</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Ashton Cox</td>
+                                      <td>Junior Technical Author</td>
+                                      <td>San Francisco</td>
+                                      <td>66</td>
+                                      <td>2009/01/12</td>
+                                      <td>$86,000</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </main>
+          <Footer/>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
