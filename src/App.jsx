@@ -1,6 +1,6 @@
 import './assets/css/styles.css'
-import '@bootstrap/dist/css/bootstrap.min.css'
-import '@bootstrap/dist/js/bootstrap.bundle'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import Footer from './components/partials/Footer';
 import Nav from './components/partials/Nav';
 import Sidebar from './components/partials/Sidebar';
