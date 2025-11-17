@@ -1,8 +1,12 @@
-import React from 'react'
+import { Helmet } from "react-helmet";
 
 const BreadCrumb = (props) => {
   return (
     <div>
+        <Helmet>
+            <title>{props.title} | React POS</title>
+        </Helmet>
+
       <h1 className="mt-4">Dashboard</h1>
       <ol className="breadcrumb mb-4">
         <li className="breadcrumb-item active">{props.title}</li>
