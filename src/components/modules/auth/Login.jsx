@@ -31,14 +31,14 @@ const Login = () => {
         console.log(res.data);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("name", res.data.user.name);
-        alert("Login Success!");
+        window.location.reload()
+        toast('Login Successfully')
       })
       .catch((err) => {
         if (err.response?.status === 422) {
           // Validation errors
           setErrors(err.response.data.errors);
         } else {
-          // alert(err.response?.data?.message || "Invalid Credentials!");
           toast(err.response?.data?.message || "Invalid Credentials!");
         }
       })
@@ -97,6 +97,7 @@ const Login = () => {
           onClick={() => {
             handleLogin();
           }}
+          disabled={isLoading}
           dangerouslySetInnerHTML={{
             __html: isLoading
               ? '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading'

@@ -7,7 +7,7 @@ const BreadCrumb = (props) => {
             <title>{props.title} | React POS</title>
         </Helmet>
 
-      <h1 className="mt-4">Dashboard</h1>
+      <h4 className="mt-4">Dashboard</h4>
       <ol className="breadcrumb mb-4">
         <li className="breadcrumb-item active">{props.title}</li>
       </ol>
