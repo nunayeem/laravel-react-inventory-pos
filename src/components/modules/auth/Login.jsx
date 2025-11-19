@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import Config from './../../../config/Config';
 
 const Login = () => {
   // const [input, setInput] = useState({})
@@ -26,7 +27,7 @@ const Login = () => {
     setErrors({}); // Clear previous errors
 
     axios
-      .post("http://127.0.0.1:8000/api/login", { email, password })
+      .post(`${Config.BASE_URL}/login`, { email, password })
       .then((res) => {
         console.log(res.data);
         localStorage.setItem("token", res.data.token);
