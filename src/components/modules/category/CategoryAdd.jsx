@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BreadCrumb from "../../partials/BreadCrumb";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Config from "../../../config/Config";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,6 +12,7 @@ const CategoryAdd = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -55,6 +56,7 @@ const CategoryAdd = () => {
         setIsLoading(false); 
 
         setErrors({});
+        navigate('/category')
       })
       .catch((error) => {
         setIsLoading(false); 
@@ -232,16 +234,23 @@ const CategoryAdd = () => {
                 </div>
               </div>
 
-              <button
-                className="btn btn-primary mt-2"
-                disabled={isLoading}
-                onClick={handleCategoryCreate}
-                dangerouslySetInnerHTML={{
-                  __html: isLoading
-                    ? '<span class="spinner-border spinner-border-sm"></span> Saving...'
-                    : "Add Category",
-                }}
-              ></button>
+              <div className="d-flex align-items-center justify-content-start">
+
+                <button
+                  className="btn btn-primary mt-2"
+                  disabled={isLoading}
+                  onClick={handleCategoryCreate}
+                  dangerouslySetInnerHTML={{
+                    __html: isLoading
+                      ? '<span class="spinner-border spinner-border-sm"></span> Saving...'
+                      : "Add Category",
+                  }}
+                ></button>
+
+                <Link className="btn btn-dark mt-2 mx-3" to={'/category'}>
+                  Cancel
+                </Link>
+              </div>
             </div>
           </div>
         </div>
