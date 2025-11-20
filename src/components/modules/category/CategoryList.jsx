@@ -3,8 +3,15 @@ import BreadCrumb from "../../partials/BreadCrumb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Config from "../../../config/Config";
+import CategoryPhotoModel from "../../partials/modals/CategoryPhotoModel";
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 const CategoryList = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+  const [modalPhoto, setModalPhoto] = React.useState('');
+
   const [categories, setCategories] = useState([]);
   const [meta, setMeta] = useState({});
   const [loading, setLoading] = useState(true);
@@ -40,6 +47,11 @@ const CategoryList = () => {
       setLoading(false);
     }
   };
+
+  const handleModalPhoto = (photo) => {
+    setModalPhoto(photo);
+    setModalShow(true);
+  }
 
   useEffect(() => {
     getCategories(currentPage);
@@ -116,6 +128,7 @@ const CategoryList = () => {
                               <td>
                                 {category.photo ? (
                                   <img
+                                    onClick={() => handleModalPhoto(category.photo)}
                                     src={category.photo}
                                     alt="Category"
                                     width="50"
@@ -177,6 +190,13 @@ const CategoryList = () => {
                         </tr>
                       </tfoot>
                     </table>
+
+                    <CategoryPhotoModel 
+                      show={modalShow}
+                      onHide={() => setModalShow(false)}
+                      title="Category Photo"
+                      photo={modalPhoto}
+                      />
                   </div>
 
                   {/* Pagination */}
